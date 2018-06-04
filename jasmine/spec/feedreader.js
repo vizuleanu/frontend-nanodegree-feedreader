@@ -57,11 +57,12 @@ $(function() {
         });
     });
 
-    /* Test suite named "Initial Entries" */
+    // Test suite named "Initial Entries"
     describe('Initial Entries', function () {
         /* Test that ensures when the loadFeed
          * function is called and completes its work, there is at least
-         * a single .entry element within the .feed container. */
+         * a single .entry element within the .feed container. 
+         */
 
         // Async "done" function
         beforeEach(function (done) {
@@ -76,13 +77,30 @@ $(function() {
         });
     });
 
-    /* Test suite named "New Feed Selection". */
-    describe('New Feed Selection', function() {
-       
-        /* TODO: Write a test that ensures when a new feed is loaded
-         * by the loadFeed function that the content actually changes.
-         * Remember, loadFeed() is asynchronous.
+    // Test suite named "New Feed Selection".
+    describe('New Feed Selection', function () {
+        /* Test that ensures that the content changes when a new feed is loaded
+         * by the loadFeed function. 
          */
-    });
-    
-}());
+        let feedOne,
+            feedTwo;
+      
+        beforeEach(function (done) {
+            loadFeed(0, function () {
+                feedOne = document.querySelector('.feed').innerHTML;
+            });
+            loadFeed(1, function () {
+                feedTwo = document.querySelector('.feed').innerHTML;
+                done();
+            });
+        });
+      
+        /* Check if feeds have been added to the feedList. 
+         * To see if the two entries are not equal.
+         */
+        it('loads new added feeds', function (done) {
+            expect(feedOne).not.toEqual(feedTwo);
+            done();
+        });
+      });
+} ());
