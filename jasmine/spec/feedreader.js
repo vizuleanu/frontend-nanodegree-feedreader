@@ -43,18 +43,18 @@ $(function() {
     /* Test suite named "The menu" */
     describe('The Menu', function () {
 
-            /* Test that ensures the menu element is hidden by default. */
-            it('hides the menu by default', () => {
-                expect($('body').hasClass('menu-hidden')).toBe(true);
-            });
+        /* Test that ensures the menu element is hidden by default. */
+        it('hides the menu by default', () => {
+            expect($('body').hasClass('menu-hidden')).toBe(true);
+        });
 
-            /* Ensures the menu changes visibility when the menu icon is clicked */
-            it('Toggle menu display when clicked', function () {
-                $('.menu-icon-link').trigger('click');
+        /* Ensures the menu changes visibility when the menu icon is clicked */
+        it('Toggle menu display when clicked', function () {
+            $('.menu-icon-link').trigger('click');
                     expect($('body').hasClass('menu-hidden')).toBeFalsy();
-                $('.menu-icon-link').trigger('click');
+            $('.menu-icon-link').trigger('click');
                     expect($('body').hasClass('menu-hidden')).toBeTruthy();
-    });
+        });
     });
 
     /* Test suite named "Initial Entries" */
@@ -70,17 +70,19 @@ $(function() {
             });
         });
 
-        it('feed has at leaseone entry', function (done) {
+        it('feed has at least one entry', function (done) {
             expect($('.feed .entry').length).toBeGreaterThan(0);
             done();
         });
-    
+    });
 
-    /* TODO: Write a new test suite named "New Feed Selection" */
-
+    /* Test suite named "New Feed Selection". */
+    describe('New Feed Selection', function() {
+       
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
     });
+    
 }());
