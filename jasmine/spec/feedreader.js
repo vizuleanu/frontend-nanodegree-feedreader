@@ -23,7 +23,7 @@ $(function() {
             expect(allFeeds.length).not.toBe(0);
         });
 
-        /* The ‘it’ function tests allFeeds URLs to be defined and longer than 0 characters */
+        /* The ‘it’ function tests allFeeds URLs to be defined and longer than 0 characters. */
         it('urls are defined', function () {
             for (var i = 0; i < allFeeds.length; i++) {
                 expect(allFeeds[i].url).toBeDefined();
@@ -31,7 +31,7 @@ $(function() {
             };
         });
 
-        /* The ‘it’ function tests allFeeds names to be defined and longer than 0 characters */
+        /* The ‘it’ function tests allFeeds names to be defined and longer than 0 characters. */
         it('names are defined', function () {
             for (var i = 0; i < allFeeds.length; i++) {
                 expect(allFeeds[i].name).toBeDefined();
@@ -42,11 +42,11 @@ $(function() {
 
     /* Test suite named "The menu" */
     describe('The Menu', function () {
-        /* TODO: Write a test that ensures the menu element is
-         * hidden by default. You'll have to analyze the HTML and
-         * the CSS to determine how we're performing the
-         * hiding/showing of the menu element.
-         */
+        
+        /* Test that ensures the menu element is hidden by default. */
+            it('hides the menu by default', () => {
+                expect($('body').hasClass('menu-hidden')).toBe(true);
+            });
 
          /* TODO: Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
