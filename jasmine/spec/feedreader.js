@@ -25,17 +25,19 @@ $(function() {
 
         /* The ‘it’ function tests allFeeds URLs to be defined and longer than 0 characters */
         it('urls are defined', function () {
-            for (var i = 0; i < allFeedsSize; i++) {
+            for (var i = 0; i < allFeeds.length; i++) {
                 expect(allFeeds[i].url).toBeDefined();
                 expect(allFeeds[i].url.length).not.toBe(0);
             };
         });
 
-
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a name defined
-         * and that the name is not empty.
-         */
+        /* The ‘it’ function tests allFeeds names to be defined and longer than 0 characters */
+        it('names are defined', function () {
+            for (var i = 0; i < allFeeds.length; i++) {
+                expect(allFeeds[i].name).toBeDefined();
+                expect(allFeeds[i].name.length).not.toBe(0);
+            }
+        });
     });
 
 
