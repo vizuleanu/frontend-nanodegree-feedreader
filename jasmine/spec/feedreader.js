@@ -82,24 +82,27 @@ $(function() {
         /* Test that ensures that the content changes when a new feed is loaded
          * by the loadFeed function. 
          */
-        let feedOne,
-            feedTwo;
+        let oldFeed,
+            newFeed;
       
-        beforeEach(function (done) {
-            loadFeed(0, function () {
-                feedOne = document.querySelector('.feed').innerHTML;
-            });
-            loadFeed(1, function () {
-                feedTwo = document.querySelector('.feed').innerHTML;
+        beforeEach(function(done) {
+            loadFeed(0, function() {
+                // feed 0 done loading
+                oldFeed = document.querySelector('.feed').innerHTML;
+                loadFeed(1, function(){
+                // feed 1 done loading
+                newFeed = document.querySelector('.feed').innerHTML;
+                // all variables initialized, can begin tests
                 done();
             });
         });
+    });
       
         /* Check if feeds have been added to the feedList. 
          * To see if the two entries are not equal.
          */
         it('loads new added feeds', function (done) {
-            expect(feedOne).not.toEqual(feedTwo);
+            expect(oldFeed).not.toEqual(newFeed);
             done();
         });
       });
